@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 15:11:19 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/02 15:11:24 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/14 11:09:55 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t	a;
-	char	*tab;
+	size_t	i;
 
-	a = 0;
-	if (n != 0)
+	i = 0;
+	while (i < n)
 	{
-		tab = (char *)s;
-		while (a < n)
-		{
-			tab[a] = '\0';
-			a++;
-		}
+		((char *)s)[i] = 0;
+		i++;
 	}
 }

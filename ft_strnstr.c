@@ -6,40 +6,30 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 16:40:36 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/04 11:39:19 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/14 12:02:55 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	contage(const char *s1)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t a;
+	size_t	i;
+	size_t	len;
 
-	a = 0;
-	while (s1[a])
-		a++;
-	return (a);
-}
-
-char			*ft_strnstr(const char *s1, const char *s2, size_t n)
-{
-	size_t	a;
-	size_t	index;
-
-	if (s1 == NULL || n == 0)
+	if (s1 == NULL || s2 == NULL || n == 0)
 		return (NULL);
-	index = contage(s2);
-	if (n < index)
+	len = ft_strlen(s2);
+	if (n < len)
 		return (NULL);
-	if (s2[0] == '\0')
+	i = 0;
+	if (s2[i] == '\0')
 		return ((char *)s1);
-	a = 0;
-	while (s1[a] && a <= (n - index))
+	while (s1[i] != '\0' && i <= (n - len))
 	{
-		if (ft_strncmp(&s1[a], s2, index) == 0)
-			return ((char*)&s1[a]);
-		a++;
+		if (ft_strncmp(&s1[i], s2, len) == 0)
+			return ((char*)&s1[i]);
+		i++;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 09:59:09 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/03 09:59:12 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/14 09:55:02 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	int b;
 
 	b = 0;
-	a = 0;
-	while (s1[a])
-		a++;
+	a = ft_strlen(s1);
 	while (s2[b])
 	{
 		s1[a] = s2[b];

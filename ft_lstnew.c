@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 10:03:06 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/11 19:29:29 by fhenri           ###   ########.fr       */
+/*   Created: 2015/12/08 11:59:00 by fhenri            #+#    #+#             */
+/*   Updated: 2015/12/11 17:39:23 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char			*ft_strtrim(char const *s)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*tab;
-	int		a;
-	int		b;
+	t_list *new;
 
-	if (s == NULL)
+	new = (t_list*)malloc(sizeof(t_list));
+	if (new == NULL)
 		return (NULL);
-	a = ft_strlen(s);
-	tab = (char*)malloc(sizeof(char) * a + 1);
-	if (tab == NULL)
-		return (NULL);
-	a = 0;
-	b = 0;
-	while (s[a] == ' ' || s[a] == '\n' || s[a] == '\t')
-		a++;
-	while (s[a])
-		tab[b++] = s[a++];
-	a--;
-	while (s[a] == ' ' || s[a] == '\n' || s[a] == '\t')
+	else if (content == NULL)
 	{
-		tab[b] = '\0';
-		b--;
-		a--;
+		new->content = NULL;
+		new->content_size = 0;
 	}
-	tab[b] = '\0';
-	return (tab);
+	else
+	{
+		new->content = malloc(sizeof(content));
+		if (new->content == NULL)
+			return (NULL);
+		ft_memcpy((new->content), content, ft_strlen((char*)content));
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

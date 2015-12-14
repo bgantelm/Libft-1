@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 12:42:15 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/14 10:14:02 by fhenri           ###   ########.fr       */
+/*   Created: 2015/12/08 12:38:00 by fhenri            #+#    #+#             */
+/*   Updated: 2015/12/11 17:31:41 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	unsigned char	*ss1;
-	unsigned char	*ss2;
+	t_list *list;
+	t_list *res;
+	t_list *cur;
 
-	ss1 = (unsigned char*)s1;
-	ss2 = (unsigned char*)s2;
-	while (*ss1 || *ss2)
+	res = NULL;
+	if (lst != NULL && f != NULL)
 	{
-		if (*ss1 != *ss2)
-			return (*ss1 - *ss2);
-		ss1++;
-		ss2++;
+		res = (*f)(lst);
+		list = res;
+		lst = lst->next;
+		while (lst != NULL)
+		{
+			cur = (*f)(lst);
+			if (cur == NULL)
+				return (res);
+			list->next = cur;
+			list = cur;
+			lst = list->next;
+		}
 	}
-	return (0);
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 09:57:22 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/03 09:57:25 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/14 09:30:45 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ void	*ft_memset(void *b, int c, size_t len)
 
 	a = 0;
 	tab = (unsigned char *)b;
-	if (b == NULL)
-		return (0);
 	while (a < len)
 	{
-		tab[a] = c;
+		tab[a] = (unsigned char)c;
 		a++;
 	}
 	return (tab);

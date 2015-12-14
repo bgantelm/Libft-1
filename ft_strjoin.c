@@ -6,12 +6,25 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/26 13:58:39 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/09 15:46:46 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/11 17:15:09 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
+
+static size_t	ft_strlen1(const char *mot)
+{
+	size_t a;
+
+	a = 0;
+	if (mot != NULL)
+	{
+		while (mot[a])
+			a++;
+	}
+	return (a);
+}
 
 char			*ft_strjoin(char const *s1, char const *s2)
 {
@@ -20,7 +33,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	int		b;
 
 	b = 0;
-	a = ft_strlen(s1) + ft_strlen(s2);
+	a = ft_strlen1(s1) + ft_strlen1(s2);
 	tab = (char*)malloc(sizeof(char) * a);
 	if (tab == NULL || s1 == NULL || s2 == NULL)
 		return (NULL);

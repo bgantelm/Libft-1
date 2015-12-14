@@ -6,20 +6,24 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 15:34:16 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/02 15:34:18 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/11 17:14:25 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putstr_fd(char const *s, int fd)
 {
 	int a;
 
 	a = 0;
-	while (s[a])
+	if (s != NULL)
 	{
-		write(fd, &s[a], 1);
-		a++;
+		while (s[a])
+		{
+			write(fd, &s[a], 1);
+			a++;
+		}
 	}
 }

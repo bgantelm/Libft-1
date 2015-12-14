@@ -6,15 +6,16 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 11:22:47 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/09 12:10:04 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/11 17:10:54 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static char		*zero(char *str)
 {
-	str = malloc(sizeof(char) * 1);
+	str = malloc(sizeof(char) * 1 + 1);
 	if (str == NULL)
 		return (NULL);
 	str[0] = '0';
@@ -92,7 +93,7 @@ char			*ft_itoa(int n)
 	if (n == 0 || n < -2147483647 || n > 2147483647)
 		return (char*)(zero(str));
 	count = ft_count(n);
-	str = (char*)malloc(sizeof(char) * count);
+	str = (char*)malloc(sizeof(char) * count + 1);
 	if (str == NULL)
 		return (NULL);
 	return (char*)(ft_transformeur(str, count, n, signe));
