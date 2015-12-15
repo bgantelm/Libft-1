@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 09:51:29 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/14 12:05:11 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/15 12:15:27 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,5 @@ int	ft_isalnum(int c)
 		return (1);
 	if (ft_isdigit(c))
 		return (1);
-	else
-		return (0);
+	return (0);
 }
