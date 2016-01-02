@@ -6,7 +6,7 @@
 /*   By: fhenri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 09:59:09 by fhenri            #+#    #+#             */
-/*   Updated: 2015/12/15 13:48:26 by fhenri           ###   ########.fr       */
+/*   Updated: 2015/12/16 09:34:55 by fhenri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int a;
-	int b;
+	char *str1;
+	char *str2;
 
-	b = 0;
-	a = 0;
-	a = ft_strlen(s1);
-	while (s2[b])
+	str1 = s1;
+	str2 = (char*)s2;
+	while (*str1)
+		str1++;
+	while (*str2)
 	{
-		s1[a] = s2[b];
-		a++;
-		b++;
+		*str1 = *str2;
+		str1++;
+		str2++;
 	}
-	s1[a] = '\0';
+	*str1 = '\0';
 	return (s1);
 }
